@@ -1,0 +1,33 @@
+# Ignore Visual Studio temporary files, build results, and
+# build directories.
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore .vs folder (contains Visual Studio IntelliSense and other user-specific settings)
+.vs/
+
+# Ignore NuGet packages folder
+packages/
+
+# Ignore project debug and release configurations
+[Dd]ebug/
+[Rr]elease/
+
+# Ignore NCrunch
+_ncrunch*
+
+# Ignore Mac files
+*.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Ignore Web-specific files
+.vscode/
+node_modules/
+dist/
+
