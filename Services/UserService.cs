@@ -25,7 +25,7 @@ namespace ClimateSmartAgriculture.Services
             {
                 Name = name,
                 Email = email,
-                PasswordHash = HashPassword(password), // Use the updated HashPassword method
+                PasswordHash = HashPassword(password), 
                 Role = role
             };
 
@@ -36,8 +36,9 @@ namespace ClimateSmartAgriculture.Services
 
         public User Authenticate(string email, string password)
         {
-            var user = _context.Users.SingleOrDefault(u => u.Email == email);
-            if (user == null || !VerifyPassword(password, user.PasswordHash)) // Use the updated VerifyPassword method
+            //var user = _context.Users.SingleOrDefault(u => u.Email == email);
+            var user = _context.Users.FirstOrDefault(u => u.Email == email);
+            if (user == null || !VerifyPassword(password, user.PasswordHash))
                 return null;
 
             return user;
@@ -59,13 +60,11 @@ namespace ClimateSmartAgriculture.Services
                 iterationCount: 10000,
                 numBytesRequested: 256 / 8));
 
-            // Combine the salt and hashed password together
             return $"{saltString}:{hashed}";
         }
 
         private bool VerifyPassword(string password, string storedHashedPassword)
         {
-            // Split the stored hashed password into salt and hash
             var parts = storedHashedPassword.Split(':');
             if (parts.Length != 2)
                 return false;

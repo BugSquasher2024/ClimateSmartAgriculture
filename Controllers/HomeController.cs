@@ -45,7 +45,7 @@ public class HomeController : Controller
         var user = _userService.Authenticate(email, password);
         if (user != null)
         {
-            // Set user session
+            // Setting user session
             HttpContext.Session.SetString("UserEmail", user.Email);
             return RedirectToAction("Dashboard");
         }
