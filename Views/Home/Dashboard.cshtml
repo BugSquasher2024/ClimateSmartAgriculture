@@ -1,0 +1,8 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    var userEmail = ViewBag.UserEmail;
+}
+
+<h2>Dashboard</h2>
+<p>Welcome, @userEmail</p>
+<a href="@Url.Action("Logout", "Home")" class="btn btn-danger">Logout</a>

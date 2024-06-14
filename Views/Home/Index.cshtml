@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var userEmail = Context.Session.GetString("UserEmail");
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Welcome to the Climate-Smart Agriculture System.</p>
+    @if (userEmail != null)
+    {
+        <a class="btn btn-primary" asp-action="Dashboard">Go to Dashboard</a>
+    }
+    else
+    {
+        <a class="btn btn-primary" asp-action="Login">Login</a>
+    }
+</div>

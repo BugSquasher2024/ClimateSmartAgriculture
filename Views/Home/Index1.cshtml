@@ -1,0 +1,7 @@
+﻿@page
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+<p>Welcome, @HttpContext.Session.GetString("UserEmail")</p>
