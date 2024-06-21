@@ -1,7 +1,9 @@
 using ClimateSmartAgriculture.Models;
 using ClimateSmartAgriculture.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 public class HomeController : Controller
 {
@@ -25,13 +27,22 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Register(string name, string email, string password)
+    public async Task<IActionResult> Register(RegisterViewModel model)
     {
-        if (_userService.Register(name, email, password, "Farmer"))
-            return RedirectToAction("Login");
+        if (ModelState.IsValid)
+        {
+            if (model.Password != model.ConfirmPassword)
+            {
+                ModelState.AddModelError("", "Passwords do not match.");
+                return View(model);
+            }
 
-        ModelState.AddModelError("", "Email is already registered.");
-        return View();
+            if (_userService.Register(model.Name, model.Email, model.Password, "Farmer"))
+                return RedirectToAction("Login");
+
+            ModelState.AddModelError("", "Email is already registered.");
+        }
+        return View(model);
     }
 
     public IActionResult Login()
@@ -45,7 +56,6 @@ public class HomeController : Controller
         var user = _userService.Authenticate(email, password);
         if (user != null)
         {
-            // Setting user session
             HttpContext.Session.SetString("UserEmail", user.Email);
             return RedirectToAction("Dashboard");
         }
