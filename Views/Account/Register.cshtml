@@ -1,0 +1,37 @@
+﻿@model ClimateSmartAgriculture.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container-lg">
+    <div class="register-container">
+        <h2 class="register-heading text-center">Register</h2>
+
+        <form asp-action="Register" class="register-form">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="Password" required>
+            </div>
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="ConfirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+
+        <p class="text-center mt-3">Already have an account? <a href="@Url.Action("Login", "Account")">Login here</a></p>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-1WvhKKmDt2E6YU3Dt7jzOs2BOmXTDkCwVLy8ptZUJ8zSNPEYQoJiY3FbTDT4i6m7+5MmA+P/iRM8yZCmeP5K9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha384-HsJVvHb7FVDqzqzlWNKtC4rKpIyHh/JkS6A7hUueuhE2V70gVj30jsPe5MW7jcJ1" crossorigin="anonymous"></script>

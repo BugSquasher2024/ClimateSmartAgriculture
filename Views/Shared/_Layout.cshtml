@@ -21,7 +21,6 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-light fixed-top">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ClimateSmartAgriculture</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,7 +34,19 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dashboard">Dashboard</a>
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Farm" asp-action="Index">Farms</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Crop" asp-action="Index">Crops</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Weather" asp-action="Index">Weather</a>
                         </li>
                     </ul>
                 </div>
@@ -43,11 +54,13 @@
         </nav>
     </header>
 
-    <main role="main" class="pt-5">
-        <div class="container">
+   
+        <div class="container mt-4">
+        <main role="main" class="pt-5">
             @RenderBody()
+        </main>
         </div>
-    </main>
+    
 
     <footer class="border-top footer text-muted mt-5">
         <div class="container text-center">
@@ -59,5 +72,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
    @*  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> *@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh/74v+6Bo4NMfSArHQ6UrgCJg4IS+tx" crossorigin="anonymous"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

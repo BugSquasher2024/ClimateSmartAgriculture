@@ -15,6 +15,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<GeocodingService>();
+builder.Services.AddHttpClient<WeatherService>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {

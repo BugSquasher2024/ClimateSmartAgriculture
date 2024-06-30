@@ -25,7 +25,7 @@ namespace ClimateSmartAgriculture.Services
             {
                 Name = name,
                 Email = email,
-                PasswordHash = HashPassword(password), 
+                PasswordHash = HashPassword(password),
                 Role = role
             };
 
@@ -42,6 +42,11 @@ namespace ClimateSmartAgriculture.Services
                 return null;
 
             return user;
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            return _context.Users.FirstOrDefault(u => u.Email == email);
         }
 
         private string HashPassword(string password)

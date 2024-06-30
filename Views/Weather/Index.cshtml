@@ -1,0 +1,40 @@
+﻿@* @{
+    ViewData["Title"] = "Weather";
+    var weatherData = ViewData.Model as Newtonsoft.Json.Linq.JObject;
+}
+
+<h1>Weather</h1>
+
+<div>
+    <form method="get" asp-action="Index">
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" name="location" />
+        </div>
+        <button type="submit" class="btn btn-primary">Get Weather</button>
+    </form>
+</div>
+
+@if (weatherData != null)
+{
+    <div class="mt-4">
+        <h3>Current Weather in @weatherData["location"]["name"]</h3>
+        <p>Temperature: @weatherData["current"]["temp_c"]°C</p>
+        <p>Condition: @weatherData["current"]["condition"]["text"]</p>
+        <img src="@weatherData["current"]["condition"]["icon"]" alt="Weather Icon" />
+    </div>
+}
+ *@
+
+
+@model Newtonsoft.Json.Linq.JObject
+
+@{
+    ViewData["Title"] = "Weather";
+}
+
+<h1>Weather</h1>
+
+<div>
+    <pre>@Model.ToString()</pre>
+</div>

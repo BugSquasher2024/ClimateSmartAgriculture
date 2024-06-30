@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ClimateSmartAgriculture.Models.Farm>
+
+@{
+    ViewData["Title"] = "Farms";
+}
+
+<h1>Farms</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New Farm</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Size</th>
+            <th>Climate Zone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Location</td>
+                <td>@item.Size</td>
+                <td>@item.ClimateZone</td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.FarmId">Edit</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.FarmId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

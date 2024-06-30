@@ -10,5 +10,9 @@ namespace ClimateSmartAgriculture.Data
         }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Farm> Farms { get; set; }
+
+        public DbSet<Crop> Crops { get; set; }
     }
 }

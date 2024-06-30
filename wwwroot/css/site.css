@@ -1,26 +1,52 @@
+/* Set base font size */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
+/* Increase font size on larger screens */
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/* Adjust focus styles for buttons and form controls */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+/* Ensure body stretches to full height */
+html, body {
+    height: 100%;
 }
 
 body {
-    margin-bottom: 60px;
-    padding-top: 56px;
+    margin: 0;
+    padding-top: 56px; /* Adjust based on your navbar height */
 }
+
+/* Container margins and padding */
 .container {
     margin-top: 20px;
+    height: calc(100% - 76px); /* Adjust based on your navbar and footer height */
+    overflow-y: auto; /* Add scrollbars if content overflows */
+}
+.login-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 30px;
+    background-color: #FFFFFF; /* White background for the login box */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 100px; /* Adjust top margin based on your layout */
+}
+
+.login-heading {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4CAF50; /* Dark green color for heading */
 }

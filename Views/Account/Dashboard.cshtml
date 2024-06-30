@@ -1,0 +1,45 @@
+﻿@model ClimateSmartAgriculture.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+    var userEmail = ViewBag.UserEmail;
+}
+
+<h1>Dashboard</h1>
+<p>Welcome, @userEmail</p>
+<a href="@Url.Action("Logout", "Home")" class="btn btn-danger">Logout</a>
+
+<h2>Crops</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Farm</th>
+            <th>Crop Type</th>
+            <th>Planting Date</th>
+            <th>Harvest Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var crop in Model.Crops)
+        {
+            <tr>
+                <td>@crop.Farm.Location</td>
+                <td>@crop.CropType</td>
+                <td>@crop.PlantingDate.ToShortDateString()</td>
+                <td>@crop.HarvestDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Weather</h2>
+@if (Model.WeatherData != null)
+{
+    var weatherData = Model.WeatherData;
+    <div>
+        <h3>Current Weather in @weatherData["location"]["name"]</h3>
+        <p>Temperature: @weatherData["current"]["temp_c"]°C</p>
+        <p>Condition: @weatherData["current"]["condition"]["text"]</p>
+        <img src="@weatherData["current"]["condition"]["icon"]" alt="Weather Icon" />
+    </div>
+}

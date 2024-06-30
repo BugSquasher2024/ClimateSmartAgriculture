@@ -1,0 +1,45 @@
+﻿@model ClimateSmartAgriculture.Models.Crop
+
+@{
+    ViewData["Title"] = "Create Crop";
+}
+
+<h1>Create Crop</h1>
+
+<h4>Crop</h4>
+<hr />
+<div>
+    <form asp-action="Create">
+        <div class="form-group">
+            <label asp-for="FarmId" class="control-label">Farm</label>
+            <select asp-for="FarmId" class="form-control" asp-items="ViewBag.Farms"></select>
+            <span asp-validation-for="FarmId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CropType" class="control-label"></label>
+            <input asp-for="CropType" class="form-control" />
+            <span asp-validation-for="CropType" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PlantingDate" class="control-label"></label>
+            <input asp-for="PlantingDate" class="form-control" />
+            <span asp-validation-for="PlantingDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="HarvestDate" class="control-label"></label>
+            <input asp-for="HarvestDate" class="form-control" />
+            <span asp-validation-for="HarvestDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
