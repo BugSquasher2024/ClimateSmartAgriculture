@@ -1,0 +1,45 @@
+﻿@model ClimateSmartAgriculture.Models.SoilMoisture
+
+@{
+    ViewData["Title"] = "Edit Soil Moisture";
+}
+
+<h1>Edit Soil Moisture</h1>
+
+<h4>SoilMoisture</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MoistureId" />
+            <div class="form-group">
+                <label asp-for="FarmId" class="control-label"></label>
+                <select asp-for="FarmId" class="form-control" asp-items="ViewBag.FarmId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level" class="control-label"></label>
+                <input asp-for="Level" class="form-control" />
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

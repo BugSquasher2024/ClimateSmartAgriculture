@@ -20,5 +20,7 @@ namespace ClimateSmartAgriculture.Models
         [Required]
         [StringLength(50)]
         public string ClimateZone { get; set; }
+
+        public ICollection<SoilMoisture> SoilMoistureReadings { get; set; }  // Navigation property
     }
 }

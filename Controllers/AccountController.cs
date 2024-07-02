@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ClimateSmartAgriculture.Data;
 using ClimateSmartAgriculture.Models;
 using ClimateSmartAgriculture.Services;
+using System.Diagnostics;
 
 namespace ClimateSmartAgriculture.Controllers
 {
@@ -90,6 +91,18 @@ namespace ClimateSmartAgriculture.Controllers
             ViewBag.UserEmail = userEmail;
             return View(viewModel);
             //return View();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

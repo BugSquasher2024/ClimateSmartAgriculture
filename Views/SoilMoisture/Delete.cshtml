@@ -1,0 +1,40 @@
+﻿@model ClimateSmartAgriculture.Models.SoilMoisture
+
+@{
+    ViewData["Title"] = "Delete Soil Moisture";
+}
+
+<h1>Delete Soil Moisture</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Soil Moisture</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Farm
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Farm.Location
+        </dd>
+        <dt class="col-sm-2">
+            Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Date.ToShortDateString()
+        </dd>
+        <dt class="col-sm-2">
+            Level
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Level
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.MoistureId" method="post">
+        <input type="hidden" asp-for="MoistureId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+
+</div>
