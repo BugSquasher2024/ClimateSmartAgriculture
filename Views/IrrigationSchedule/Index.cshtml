@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ClimateSmartAgricultureSystem.Models.IrrigationSchedule>
+
+@{
+    ViewData["Title"] = "Irrigation Schedules";
+}
+
+<h1>Irrigation Schedules</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New Schedule</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Farm</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Water Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Farm.Location</td>
+                <td>@item.StartTime</td>
+                <td>@item.EndTime</td>
+                <td>@item.WaterAmount</td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.ScheduleId">Edit</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ScheduleId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

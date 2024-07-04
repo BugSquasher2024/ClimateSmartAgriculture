@@ -73,6 +73,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using ClimateSmartAgriculture.Models;
+using ClimateSmartAgricultureSystem.Models;
 
 namespace ClimateSmartAgriculture.Data
 {
@@ -85,7 +86,9 @@ namespace ClimateSmartAgriculture.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Farm> Farms { get; set; }
         public DbSet<Crop> Crops { get; set; }
-        public DbSet<SoilMoisture> SoilMoisture { get; set; }  // Include DbSet for SoilMoisture
+        public DbSet<SoilMoisture> SoilMoisture { get; set; }
+        public DbSet<IrrigationSchedule> IrrigationSchedules { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
